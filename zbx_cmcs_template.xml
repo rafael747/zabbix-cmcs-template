@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.0</version>
-    <date>2019-10-09T13:25:16Z</date>
+    <date>2019-10-11T13:59:19Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -568,6 +568,22 @@
     </templates>
     <triggers>
         <trigger>
+            <expression>{Template CMCS Monitoring:cmcs.ctn.last()}&lt;6.5</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>CMCS Carrier to Noise C/N is to low on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
             <expression>{Template CMCS Monitoring:cmcs.datl.max(#3)}=0</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
@@ -600,6 +616,64 @@
             <tags/>
         </trigger>
     </triggers>
+    <graphs>
+        <graph>
+            <name>CMCS Satellite's Link Performance</name>
+            <width>900</width>
+            <height>200</height>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <type>0</type>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <ymin_type_1>0</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>1A7C11</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template CMCS Monitoring</host>
+                        <key>cmcs.ctn</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>F63100</color>
+                    <yaxisside>1</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template CMCS Monitoring</host>
+                        <key>cmcs.sigs</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>2774A4</color>
+                    <yaxisside>1</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template CMCS Monitoring</host>
+                        <key>cmcs.vber</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
     <value_maps>
         <value_map>
             <name>Service state</name>
